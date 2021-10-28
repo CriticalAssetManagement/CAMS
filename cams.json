@@ -1,0 +1,182 @@
+[
+    { "@type" : "Class",
+      "@id" : "AreaExtent",
+      "@subdocument" : [],
+      "perimeter" : { "@type" : "Optional",
+                      "@class" : "xsd:integer" }
+    },
+
+    { "@type" : "Enum",
+      "@id" : "Hazard",
+      "@value" : [
+          "Volcanos (incl. lahars, pyroclastic flows, volcanic activity)",
+          "Landslides (incl. post wildfire landslides) and Avalanches",
+          "Hurricanes, Typhoons, or Cyclones",
+          "Tropical/Extra Tropical of other extreme storms",
+          "Coast Storm Surge",
+          "Pluvial and Fluvial Flooding",
+          "\"Sunny Day\" Tidal Flooding",
+          "Tornadoes, Derechos, Micro-Bursts",
+          "Lightning Strikes",
+          "Wildfires",
+          "Drought",
+          "Geologic Sink Holes",
+          "Pest Infestations",
+          "Famine",
+          "High Temperature Event",
+          "Low Temperature Event",
+          "Cyber Attack or Failure",
+          "Other Terrorism",
+          "Industrial Accident (Emissions, Releases, Spills, Ect.)"
+      ]
+    },
+
+    { "@type" : "Class",
+      "@id" : "Event",
+      "@abstract" : [],
+      "@subdocument" : [],
+      "date" : "xsd:dateTime"
+    },
+
+    { "@type" : "Class",
+      "@id" : "HazardEvent",
+      "@documentation" : {
+          "@comment" : "Historical hazard",
+          "@properties" : { "comment" : "A comment relating to an historic hazard incident.",
+                            "date_of_incident" : "The date at which the incident occurred."
+                          }
+      },
+      "@key" : { "@type" : "Lexical",
+                 "@fields" : ["hazard", "date"] },
+      "@inherits" : "Event",
+      "@subdocument" : [],
+      "hazard" : "Hazard",
+      "comment" : "xsd:string"
+    },
+
+    { "@type" : "Class",
+      "@id" : "UpdateEvent",
+      "@inherits" : "Event",
+      "@documentation" : {
+          "@comment" : "Update history",
+          "@properties" : { "comment" : "A comment relating to an historic hazard incident.",
+                            "date" : "The date at which the update occurred."
+                          }
+      },
+      "@subdocument" : [],
+      "update" : "xsd:string"
+    },
+
+    { "@type" : "Class",
+      "@id" : "Area",
+      "name" : "xsd:string",
+      "population" : { "@type" : "Optional",
+                       "@class" : "xsd:integer" },
+      "extent" : { "@type" : "Optional",
+                   "@class" : "AreaExtent" },
+      "hazards" : { "@type" : "Set",
+                    "@class" : "Hazard" },
+      "hazard_history" : { "@type" : "Set",
+                           "@class" : "HazardEvent" },
+      "hazards" : { "@type" : "Set",
+                    "@class" : "Hazard" }
+    },
+
+    { "@type" : "Class",
+      "@id" : "SpatialWebIdentifier",
+      "id" : "xsd:string"
+    },
+
+    { "@type" : "Class",
+      "@id" : "FundingSource",
+      "@abstract" : []
+    },
+
+    { "@type" : "Class",
+      "@id" : "GeoCoordinate",
+      "@subdocument" : [],
+      "@key" : { "@type" : "Lexical",
+                 "@fields" : ["latitude", "longitude"] },
+      "latitude" : "xsd:decimal",
+      "longitude" : "xsd:decimal"
+    },
+
+    { "@type" : "Class",
+      "@id" : "GeoPerimeter",
+      "@subdocument" : [],
+      "@key" : { "@type" : "Lexical",
+                 "@fields" : ["perimeter"] },
+      "perimeter" : { "@type" : "List",
+                      "@class" : "GeoCoordinate" }
+    },
+
+    { "@type" : "Class",
+      "@id" : "Location",
+      "street" : "xsd:string",
+      "city" : "xsd:string",
+      "state" : "xsd:string",
+      "postal_code" : { "@type" : "Optional",
+                        "@class" : "xsd:string" },
+      "geo_location" : { "@type" : "Optional",
+                         "@class" : "GeoCoordinate" }
+    },
+
+    { "@type" : "Class",
+      "@id" : "AssetType",
+      "@abstract" : [],
+      "name" : "xsd:string"
+    },
+
+    { "@type" : "Class",
+      "@id" : "Asset",
+      "name" : "xsd:string",
+      "asset_identifier" : "xsd:string",
+      "spatial_web_identifier" : { "@type" : "Optional",
+                                   "@class" : "SpatialWebIdentifier"},
+      "type" : "AssetType",
+      "location" : "Location",
+      "owner" : "Owner",
+      "commisioning_date" : "xsd:dateTime",
+      "last_maintained" : "xsd:dateTime",
+      "last_modified" : "xsd:dateTime",
+      "design_standards" : "xsd:string",
+      "applicable_hazards" : { "@type" : "Set",
+                               "@class" : "Hazard" },
+      "asset_history" : { "@type" : "Set",
+                          "@class" : "Event"
+                        },
+      "asset_update_history" : { "@type" : "Set",
+                                 "@class" : "UpdateEvent"
+                               },
+      "funding_source" : "FundingSource",
+      "sources_of_data" : { "@type" : "Set",
+                            "@class" : "Source" }
+    },
+
+    { "@type" : "Class",
+      "@id" : "Source",
+      "@abstract" : []
+    },
+
+    { "@type" : "Class",
+      "@id" : "DependencyRelation",
+      "depends_on" : "Asset",
+      "dependent" : "Asset",
+      "comment" : "xsd:string",
+      "critical" : "xsd:boolean"
+    },
+
+    { "@type" : "Class",
+      "@id" : "Person",
+      "first_name" : "xsd:string",
+      "last_name" : "xsd:string",
+      "job_title" : { "@type" : "Optional"
+                      "@class" : "xsd:string" },
+      "organization" : { "@type" : "Optional",
+                         "@class" : "xsd:string" },
+      "phone_number" : { "@type" : "Optional",
+                         "@class" : "xsd:string" },
+      "email_address" : { "@type" : "Optional",
+                          "@class" : "xsd:string" }
+    }
+]
