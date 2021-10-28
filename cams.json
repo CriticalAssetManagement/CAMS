@@ -170,7 +170,7 @@
       "@id" : "Person",
       "first_name" : "xsd:string",
       "last_name" : "xsd:string",
-      "job_title" : { "@type" : "Optional"
+      "job_title" : { "@type" : "Optional",
                       "@class" : "xsd:string" },
       "organization" : { "@type" : "Optional",
                          "@class" : "xsd:string" },
