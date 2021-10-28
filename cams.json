@@ -2,6 +2,7 @@
     { "@type" : "Class",
       "@id" : "AreaExtent",
       "@subdocument" : [],
+      "@key" : { "@type" : "ValueHash" },
       "perimeter" : { "@type" : "Optional",
                       "@class" : "xsd:integer" }
     },
@@ -43,7 +44,7 @@
       "@documentation" : {
           "@comment" : "Historical hazard",
           "@properties" : { "comment" : "A comment relating to an historic hazard incident.",
-                            "date_of_incident" : "The date at which the incident occurred."
+                            "date" : "The date at which the incident occurred."
                           }
       },
       "@key" : { "@type" : "Lexical",
@@ -63,8 +64,10 @@
                             "date" : "The date at which the update occurred."
                           }
       },
+      "@key" : { "@type" : "Lexical",
+                 "@fields" : [ "comment", "date" ] },
       "@subdocument" : [],
-      "update" : "xsd:string"
+      "comment" : "xsd:string"
     },
 
     { "@type" : "Class",
@@ -125,6 +128,12 @@
       "@id" : "AssetType",
       "@abstract" : [],
       "name" : "xsd:string"
+    },
+
+    { "@type" : "Class",
+      "@id" : "Owner",
+      "name" : "xsd:string",
+      "contact_person" : "Person"
     },
 
     { "@type" : "Class",
