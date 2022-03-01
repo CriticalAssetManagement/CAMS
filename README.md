@@ -1,4 +1,4 @@
-![CAMS - Building Climate Resilience](https://github.com/CriticalAssetManagement/CAMS-web-assets/raw/main/Images/CAMS-Repo-Intro-Large.png)
+![CAMS - Building Climate Resilience](https://github.com/CriticalAssetManagement/CAMS-web-assets/raw/main/Images/CAMS-Repo-Intro-Large-v2.png)
 # Critical Asset Management System
 ## Helping nations become disaster resilient to save lives and rebuild quickly
 
