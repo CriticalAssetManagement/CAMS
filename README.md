@@ -1,10 +1,10 @@
 # Critical Asset Management System
 ## Helping nations become disaster resilient to save lives and rebuild quickly
 
-Thanks for looking into the open-source CAMS project. If you’re interested in contributing here are a few areas for you to look into to get a better understanding of where the project currently sits.
+Thanks for looking into the open-source CAMS project. If you’re interested in contributing go over to [CAMS-Dashboard](https://github.com/CriticalAssetManagement/CAMS-Dashboard) and check out the issues. Or visit the [roadmap](https://github.com/orgs/CriticalAssetManagement/projects/2)
 
-| [Discussion](https://github.com/CriticalAssetManagement/CAMS/discussions) | [Issues](https://github.com/CriticalAssetManagement/CAMS/issues) | [Milestones](https://github.com/CriticalAssetManagement/CAMS/milestones)
-| ----------- | ----------- | ----------- |
+### This repository isn't in use anymore, but thanks for having a look.
+
 
 ## CAMS Objective
 Enable islands, cities, and communities to effectively plan for disasters so they can rebuild faster and save lives in the event and aftermath of natural and man-made catastrophes.
