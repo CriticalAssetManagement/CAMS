@@ -1,7 +1,7 @@
 # Critical Asset Management System
 ## Helping nations become disaster resilient to save lives and rebuild quickly
 
-Thanks for looking into the open-source CAMS project. If you’re interested in contributing go over to [CAMS-Dashboard](https://github.com/CriticalAssetManagement/CAMS-Dashboard) and check out the issues. Or visit the [roadmap](https://github.com/orgs/CriticalAssetManagement/projects/2)
+Thanks for looking into the open-source CAMS project. If you’re interested in contributing go over to [CAMS-Dashboard](https://github.com/CriticalAssetManagement/CAMS-Dashboard) and check out the issues. Or visit the [roadmap](https://github.com/orgs/CriticalAssetManagement/projects/2).
 
 ### This repository isn't in use anymore, but thanks for having a look.
 
